@@ -6,7 +6,7 @@
 </head>
 <body>
 
-这里是 layout.ejs <br />
+这里是 layout.ejs <br/>
 
 <%- include("index.ejs") %>
 <%- include("post.ejs") %>
@@ -14,6 +14,21 @@
 <% let test = '变量' %>
 
 <%- test %>
+<br/>
+
+<% site.posts.forEach(function (post) { %>
+
+    <%- post.path %> <br/>
+    <%- post.slug %> <br/>
+    <%- post._id %> <br/>
+    <%- post.title %> <br/>
+    <%- post.date %>
+
+    <a href="/<%- post.path %>"> <%- post.title %> </a>
+
+<% }) %>
+
+<% console.log('---> site posts: ', JSON.stringify(site.posts))%>
 
 </body>
 </html>
