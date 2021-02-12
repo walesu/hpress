@@ -3,31 +3,27 @@
 <head>
     <title></title>
     <meta charset="utf-8">
+    <%- css('css/main.css') %>
 </head>
 <body>
 
-这里是 layout.ejs <br/>
+<div id="main">
+    <!-- 侧边栏 -->
+    <aside id="#aside">
+        <%- include('aside.ejs') %>
+    </aside>
 
-<%- include("index.ejs") %>
-<%- include("post.ejs") %>
+    <!-- 引入导航 -->
+    <nav>
+        <%- include('nav.ejs') %>
+    </nav>
 
-<% let test = '变量' %>
+    <!-- 引入正文 -->
+    <div id="content">
+        <%- body %>
+    </div>
+</div>
 
-<%- test %>
-<br/>
-
-<% site.posts.forEach(function (post) { %>
-
-    <%- post.path %> <br/>
-    <%- post.slug %> <br/>
-    <%- post._id %> <br/>
-    <%- post.title %> <br/>
-    <%- post.date %>
-
-    <a href="/<%- post.path %>"> <%- post.title %> </a>
-
-<% }) %>
-
-
+<%- js('js/main.js') %>
 </body>
 </html>
